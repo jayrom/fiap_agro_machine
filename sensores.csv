@@ -1,0 +1,112 @@
+time  , temperatura, umidade, bomba    , fósforo, potássio, pH
+  2011,        2.80, OK     , desligada, OK     , OK      , alto
+  3018,        2.80, OK     , desligada, OK     , OK      , alto
+  4019,        2.80, OK     , desligada, OK     , OK      , alto
+  5026,        2.80, OK     , desligada, OK     , OK      , baixo
+  6027,        2.80, OK     , desligada, OK     , OK      , baixo
+  7034,        2.80, OK     , desligada, OK     , OK      , baixo
+  8035,        2.80, OK     , desligada, OK     , OK      , baixo
+  9042,        2.80, OK     , desligada, OK     , OK      , baixo
+ 10043,        2.80, OK     , desligada, OK     , OK      , baixo
+ 11050,        2.80, OK     , desligada, OK     , OK      , baixo
+ 12051,        2.80, OK     , desligada, OK     , OK      , baixo
+ 13058,        2.80, baixa  , ligada   , OK     , OK      , baixo
+ 14059,        2.80, baixa  , ligada   , OK     , OK      , baixo
+ 15066,       19.30, baixa  , ligada   , OK     , OK      , baixo
+ 16067,       19.30, baixa  , ligada   , OK     , OK      , baixo
+ 17074,       19.30, baixa  , ligada   , OK     , OK      , baixo
+ 18075,       19.30, baixa  , ligada   , OK     , OK      , baixo
+ 19082,       19.30, baixa  , ligada   , OK     , OK      , baixo
+ 20083,       19.30, baixa  , ligada   , baixo  , OK      , baixo
+ 21090,       19.30, baixa  , ligada   , baixo  , OK      , baixo
+ 22091,       19.30, baixa  , ligada   , baixo  , OK      , baixo
+ 23098,       19.30, OK     , desligada, baixo  , OK      , baixo
+ 24099,       19.30, OK     , desligada, baixo  , OK      , baixo
+ 25106,       19.30, OK     , desligada, baixo  , OK      , baixo
+ 26107,       19.30, OK     , desligada, baixo  , OK      , baixo
+ 27114,       19.30, OK     , desligada, baixo  , OK      , baixo
+ 28115,       19.30, OK     , desligada, baixo  , OK      , baixo
+ 29122,       19.30, OK     , desligada, baixo  , OK      , baixo
+ 30123,       19.30, OK     , desligada, baixo  , OK      , baixo
+ 31130,       19.30, OK     , desligada, baixo  , OK      , baixo
+ 32131,       19.30, OK     , desligada, baixo  , OK      , baixo
+ 33138,       19.30, OK     , desligada, baixo  , OK      , baixo
+ 34139,       19.30, OK     , desligada, baixo  , OK      , baixo
+ 35146,       19.30, OK     , desligada, baixo  , OK      , baixo
+ 36147,       19.30, OK     , desligada, baixo  , OK      , baixo
+ 37154,       19.30, OK     , desligada, baixo  , OK      , baixo
+ 38155,       19.30, OK     , desligada, baixo  , OK      , baixo
+ 39162,       19.30, OK     , desligada, baixo  , OK      , baixo
+ 40163,       19.30, OK     , desligada, baixo  , OK      , baixo
+ 41170,       19.30, OK     , desligada, baixo  , OK      , baixo
+ 42171,       19.30, OK     , desligada, baixo  , OK      , baixo
+ 43178,       19.30, OK     , desligada, baixo  , OK      , baixo
+ 44179,       19.30, OK     , desligada, baixo  , OK      , baixo
+ 45186,       19.30, OK     , desligada, baixo  , OK      , baixo
+ 46187,       19.30, OK     , desligada, baixo  , OK      , baixo
+ 47194,       19.30, OK     , desligada, baixo  , OK      , baixo
+ 48195,       19.30, OK     , desligada, baixo  , OK      , baixo
+ 49202,       19.30, OK     , desligada, baixo  , OK      , baixo
+ 50203,       19.30, OK     , desligada, baixo  , OK      , baixo
+ 51210,       19.30, OK     , desligada, baixo  , OK      , baixo
+ 52211,       19.30, OK     , desligada, baixo  , OK      , baixo
+ 53218,       19.30, OK     , desligada, baixo  , OK      , baixo
+ 54219,       19.30, OK     , desligada, baixo  , OK      , baixo
+ 55226,       19.30, OK     , desligada, baixo  , OK      , baixo
+ 56227,       19.30, OK     , desligada, baixo  , OK      , baixo
+ 57234,       19.30, OK     , desligada, baixo  , OK      , baixo
+ 58235,       19.30, OK     , desligada, baixo  , OK      , baixo
+ 59242,       19.30, OK     , desligada, baixo  , OK      , baixo
+ 60243,       19.30, OK     , desligada, baixo  , OK      , baixo
+ 61250,       19.30, OK     , desligada, baixo  , OK      , baixo
+ 62251,       19.30, OK     , desligada, baixo  , OK      , baixo
+ 63258,       19.30, OK     , desligada, baixo  , OK      , baixo
+ 64259,       19.30, OK     , desligada, baixo  , OK      , baixo
+ 65266,       19.30, OK     , desligada, OK     , OK      , baixo
+ 66267,       19.30, OK     , desligada, OK     , OK      , baixo
+ 67274,       19.30, OK     , desligada, OK     , OK      , baixo
+ 68275,       19.30, OK     , desligada, OK     , OK      , baixo
+ 69282,       28.80, OK     , desligada, OK     , OK      , baixo
+ 70283,       28.80, OK     , desligada, OK     , OK      , baixo
+ 71290,       28.80, OK     , desligada, OK     , OK      , baixo
+ 72291,       28.80, OK     , desligada, OK     , OK      , baixo
+ 73298,       18.20, baixa  , ligada   , OK     , OK      , baixo
+ 74299,       18.20, baixa  , ligada   , OK     , OK      , baixo
+ 75306,        0.20, baixa  , ligada   , OK     , OK      , baixo
+ 76307,        0.20, baixa  , ligada   , OK     , OK      , baixo
+ 77314,       10.80, baixa  , ligada   , OK     , OK      , baixo
+ 78315,       10.80, baixa  , ligada   , OK     , OK      , baixo
+ 79322,       10.80, OK     , desligada, OK     , OK      , baixo
+ 80323,       10.80, OK     , desligada, OK     , OK      , baixo
+ 81330,       10.80, OK     , desligada, OK     , OK      , baixo
+ 82331,       10.80, OK     , desligada, OK     , OK      , alto
+ 83338,       10.80, OK     , desligada, OK     , OK      , alto
+ 84339,       10.80, OK     , desligada, OK     , OK      , alto
+ 85346,       10.80, OK     , desligada, OK     , OK      , baixo
+ 86347,       10.80, OK     , desligada, OK     , OK      , baixo
+ 87354,       10.80, OK     , desligada, OK     , OK      , baixo
+ 88355,       10.80, OK     , desligada, baixo  , OK      , baixo
+ 89362,       10.80, OK     , desligada, baixo  , OK      , baixo
+ 90363,       10.80, OK     , desligada, baixo  , OK      , baixo
+ 91370,       10.80, OK     , desligada, baixo  , baixo   , baixo
+ 92371,       10.80, OK     , desligada, baixo  , baixo   , baixo
+ 93378,       10.80, OK     , desligada, baixo  , baixo   , baixo
+ 94379,       10.80, OK     , desligada, baixo  , baixo   , baixo
+ 95386,       10.80, OK     , desligada, baixo  , baixo   , baixo
+ 96387,       10.80, OK     , desligada, OK     , baixo   , baixo
+ 97394,       10.80, OK     , desligada, OK     , baixo   , baixo
+ 98395,       10.80, OK     , desligada, OK     , baixo   , baixo
+ 99402,       10.80, OK     , desligada, OK     , baixo   , alto
+100403,       10.80, OK     , desligada, OK     , baixo   , alto
+101410,       10.80, OK     , desligada, OK     , baixo   , alto
+102411,       10.80, OK     , desligada, OK     , baixo   , alto
+103418,       10.80, baixa  , ligada   , OK     , baixo   , alto
+104419,       10.80, baixa  , ligada   , OK     , baixo   , alto
+105426,       10.80, baixa  , ligada   , OK     , baixo   , alto
+106427,       10.80, baixa  , ligada   , OK     , OK      , alto
+107434,       10.80, baixa  , ligada   , OK     , OK      , alto
+108435,       10.80, baixa  , ligada   , OK     , OK      , alto
+109442,       10.80, baixa  , ligada   , baixo  , OK      , alto
+110443,       10.80, baixa  , ligada   , baixo  , OK      , alto
+111450,       10.80, baixa  , ligada   , baixo  , OK      , alto
+112451,       10.80, baixa  , ligada   , baixo  , OK      , alto
