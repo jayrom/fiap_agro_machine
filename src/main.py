@@ -18,9 +18,6 @@ log_file = "input/computer_7.log"
 # Importa dados de leitura de sensores.
 try:
     data_load = pd.read_csv(data_file)
-    # print(data_load.head())
-    print(data_load)
-
     status_bomba = data_load.loc[0, 'bomba']
     print(f"\nStatus da bomba: {status_bomba}")
 
@@ -35,7 +32,10 @@ except Exception as e:
 # Conecta banco de dados.
 try:
     # Efetua a conexão com o Usuário no servidor
-    conn = oracledb.connect(user='RM565576', password="Fiap#2025", dsn='oracle.fiap.com.br:1521/ORCL')
+
+    db_user = 'RM000000' # Insira a matrícula (ex.: RM123456)
+    db_pass = '1234' # Insira a senha 
+    conn = oracledb.connect(user=db_user, password=db_pass, dsn='oracle.fiap.com.br:1521/ORCL')
     # Cria as instruções para cada módulo
     inst_cadastro = conn.cursor()
     inst_consulta = conn.cursor()
@@ -147,6 +147,7 @@ while conexao:
 
             input("Pressione ENTER.")
 
+        # Lista leituras cadastradas no banco de dados
         case 2:
             os.system('cls')  
 
@@ -172,11 +173,12 @@ while conexao:
             print('Fim da lista')
             input('Pressione ENTER para continuar.')
 
+        # Altera leituras cadastradas no banco de dados, a partir do ID.
         case 3:
             os.system('cls')
 
             try:
-                print("-----  Alterar leituras  -----")
+                print("-----  Alterar leituras por ID  -----")
 
                 id_to_edit = input("Digite o código (id numérico) do registro que você deseja editar.")
 
@@ -242,32 +244,51 @@ while conexao:
                 conn.rollback()  # Desfaz qualquer alteração feita na transação
                 print(f"Erro ao alterar registro: {e}")
 
+        # Remove leituras cadastradas no banco de dados, a partir do ID.
         case 4:
             os.system('cls')
 
             try:
-                print("-----  Remmover leituras  -----")
+                print("-----  Remover leituras por ID  -----")
 
                 id_to_delete = input("Digite o código (id numérico) do registro que você deseja remover.")
 
-                # Verifica se o ID é um número inteiro
                 if not id_to_delete.isdigit():
                     raise ValueError("O código deve ser um número inteiro.")
                 
                 else:
-                    sql_delete = "DELETE FROM T_READINGS WHERE reading_id = :id"
-                    inst_exclusao.execute(sql_delete, {'id': id_to_delete})
-                    conn.commit()
+                    flag_confirm = input(f'Confirme que deseja remover o registro de id={id_to_delete}, S/N')
 
-                    print("Registro removido com sucesso.")
+                    if flag_confirm == 'S' or flag_confirm == 's':
+                        sql_delete = "DELETE FROM T_READINGS WHERE reading_id = :id"
+                        inst_exclusao.execute(sql_delete, {'id': id_to_delete})
+                        conn.commit()
+
+                        print("Registro removido com sucesso.")
 
             except Exception as e:
-                conn.rollback()  # Desfaz qualquer alteração feita na transação
+                conn.rollback()  
                 print(f"Erro ao alterar registro: {e}")
 
+        # Remove todos os dados de leituras da base de dados.
+        case 5:
+            os.system('cls')
 
+            try:
+                print("-----  Remmover da base todas as leituras  -----")
 
+                flag_confirm_all = input(f'Confirme que deseja remover todas as leituras, S/N')
 
+                if flag_confirm_all == 'S' or flag_confirm_all == 's':
+                    sql_delete_all = "DELETE FROM T_READINGS"
+                    inst_exclusao.execute(sql_delete_all)
+                    conn.commit()
+
+            except Exception as e:
+                conn.rollback()  
+                print(f"Erro ao remover registro: {e}")
+
+        # Fecha a conexão com o banco de dados e termina a execução do programa.
         case 6:
             print("Encerrando o programa...")
             try:
