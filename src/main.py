@@ -18,7 +18,8 @@ log_file = "input/computer_7.log"
 # Importa dados de leitura de sensores.
 try:
     data_load = pd.read_csv(data_file)
-    print(data_load.head())
+    # print(data_load.head())
+    print(data_load)
 
     status_bomba = data_load.loc[0, 'bomba']
     print(f"\nStatus da bomba: {status_bomba}")
@@ -241,6 +242,28 @@ while conexao:
                 conn.rollback()  # Desfaz qualquer alteração feita na transação
                 print(f"Erro ao alterar registro: {e}")
 
+        case 4:
+            os.system('cls')
+
+            try:
+                print("-----  Remmover leituras  -----")
+
+                id_to_delete = input("Digite o código (id numérico) do registro que você deseja remover.")
+
+                # Verifica se o ID é um número inteiro
+                if not id_to_delete.isdigit():
+                    raise ValueError("O código deve ser um número inteiro.")
+                
+                else:
+                    sql_delete = "DELETE FROM T_READINGS WHERE reading_id = :id"
+                    inst_exclusao.execute(sql_delete, {'id': id_to_delete})
+                    conn.commit()
+
+                    print("Registro removido com sucesso.")
+
+            except Exception as e:
+                conn.rollback()  # Desfaz qualquer alteração feita na transação
+                print(f"Erro ao alterar registro: {e}")
 
 
 
