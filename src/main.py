@@ -23,10 +23,8 @@ log_file = "input/computer_7.log"
 try:
     # Efetua a conexão com o Usuário no servidor
 
-    db_user = 'RM565576' # Insira a matrícula (ex.: RM123456)
-    db_pass = 'Fiap#2025' # Insira a senha 
-    # db_user = 'RM888888' # Insira a matrícula (ex.: RM123456)
-    # db_pass = '********' # Insira a senha 
+    db_user = 'RM888888' # Insira a matrícula (ex.: RM123456)
+    db_pass = '********' # Insira a senha 
     conn = oracledb.connect(user=db_user, password=db_pass, dsn='oracle.fiap.com.br:1521/ORCL')
     # Cria as instruções para cada módulo
     inst_cadastro = conn.cursor()
@@ -80,7 +78,6 @@ while conexao:
                 print(f"Erro: coluna não encontrada. Verifique a correspondência com o arquivo de dados: {e}")
             except Exception as e:
                 print(f"Ocorreu um erro durante a importação: {e}")
-
 
             try:
                 # Monta instruções SQL de inserção.
@@ -150,13 +147,11 @@ while conexao:
             input("Pressione ENTER.")
 
 
-
         # Adiciona um registro à tabela de leituras
         case 2:
             os.system('cls')  
 
             try:
-
                 sql_add = """
                 INSERT INTO T_READINGS (
                     reading_id,
@@ -234,6 +229,7 @@ while conexao:
             print('Fim da lista')
             input('Pressione ENTER para continuar.')
 
+
         # Altera leituras cadastradas no banco de dados, a partir do ID.
         case 4:
             os.system('cls')
@@ -305,6 +301,7 @@ while conexao:
                 conn.rollback()  # Desfaz qualquer alteração feita na transação
                 print(f"Erro ao alterar registro: {e}")
 
+
         # Remove leituras cadastradas no banco de dados, a partir do ID.
         case 5:
             os.system('cls')
@@ -331,6 +328,7 @@ while conexao:
                 conn.rollback()  
                 print(f"Erro ao alterar registro: {e}")
 
+
         # Remove todos os dados de leituras da base de dados.
         case 6:
             os.system('cls')
@@ -348,6 +346,7 @@ while conexao:
             except Exception as e:
                 conn.rollback()  
                 print(f"Erro ao remover registro: {e}")
+
 
         # Fecha a conexão com o banco de dados e termina a execução do programa.
         case 7:
