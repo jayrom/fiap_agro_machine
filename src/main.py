@@ -9,32 +9,24 @@ import os
 import oracledb
 import pandas as pd
 
+# Configura pandas para imprimir dataframe completo
+# pd.set_option('display.max_rows', None)
+
 
 # Lê arquivo de dados de leitura de sensores.
 data_file = "input/computer_7.csv"
 log_file = "input/computer_7.log"
 
 
-# Importa dados de leitura de sensores.
-try:
-    data_load = pd.read_csv(data_file)
-    status_bomba = data_load.loc[0, 'bomba']
-    print(f"\nStatus da bomba: {status_bomba}")
-
-except FileNotFoundError:
-    print(f"Erro: Arquivo não encontrado em '{data_file}'")
-except KeyError as e:
-    print(f"Erro: coluna não encontrada. Verifique a correspondência com o arquivo de dados: {e}")
-except Exception as e:
-    print(f"Ocorreu um erro durante a importação: {e}")
-
 
 # Conecta banco de dados.
 try:
     # Efetua a conexão com o Usuário no servidor
 
-    db_user = 'RM000000' # Insira a matrícula (ex.: RM123456)
-    db_pass = '1234' # Insira a senha 
+    db_user = 'RM565576' # Insira a matrícula (ex.: RM123456)
+    db_pass = 'Fiap#2025' # Insira a senha 
+    # db_user = 'RM888888' # Insira a matrícula (ex.: RM123456)
+    # db_pass = '********' # Insira a senha 
     conn = oracledb.connect(user=db_user, password=db_pass, dsn='oracle.fiap.com.br:1521/ORCL')
     # Cria as instruções para cada módulo
     inst_cadastro = conn.cursor()
@@ -59,11 +51,12 @@ while conexao:
     print("---- Gerenciamento de dados de campo ----")
     print("""
     1 - Cadastrar leituras em lote
-    2 - Listar leituras
-    3 - Alterar leituras
-    4 - Excluir leituras
-    5 - Limpar base de leituras
-    6 - Sair
+    2 - Adicionar leitura
+    3 - Listar leituras
+    4 - Alterar leituras
+    5 - Excluir leituras
+    6 - Limpar base de leituras
+    7 - Sair
     """)
 
     # Captura a escolha do usuário.
@@ -73,10 +66,23 @@ while conexao:
         # Cadastra leituras em lote.
         case 1:
             os.system('cls')  
+            print("-----  Cadastrar leituras em lote  -----")
 
             try:
-                print("-----  Cadastrar leituras em lote  -----")
+                # Importa dados de leitura de sensores.
+                data_load = pd.read_csv(data_file)
+                status_bomba = data_load.loc[0, 'bomba']
+                print(f"\nStatus da bomba: {status_bomba}")
 
+            except FileNotFoundError:
+                print(f"Erro: Arquivo não encontrado em '{data_file}'")
+            except KeyError as e:
+                print(f"Erro: coluna não encontrada. Verifique a correspondência com o arquivo de dados: {e}")
+            except Exception as e:
+                print(f"Ocorreu um erro durante a importação: {e}")
+
+
+            try:
                 # Monta instruções SQL de inserção.
                 sql_insert = """
                 INSERT INTO T_READINGS (
@@ -91,13 +97,12 @@ while conexao:
                     reading_ph_value,
                     reading_ph_level,
                     reading_temperature
-                ) VALUES (:1, :2, :3, :4, :5, :6, :7, :8, :9, :10, :11)
+                ) VALUES (seq_readings.NEXTVAL, :1, :2, :3, :4, :5, :6, :7, :8, :9, :10)
                 """
 
                 # Itera sobre os registros do data frame de leituras.
                 for index, row in data_load.iterrows():
                     try:
-                        reading_id = index + 1 
                         computer_id = 7
                         reading_time = int(row['time']) 
                         reading_humidity_value = int(row['valor_umidade'])
@@ -111,7 +116,6 @@ while conexao:
 
                         # Cria a tupla de um registro para inserção.
                         values = (
-                            reading_id,
                             computer_id,
                             reading_time,
                             reading_humidity_value,
@@ -133,8 +137,6 @@ while conexao:
                     except Exception as e:
                         print(f"Erro ao inserir registro {index}: {e}")
 
-# @@@ Falta tratar exceção e opção default.
-
 
             except ValueError as ve:
                 print("Erro: {ve}")
@@ -147,8 +149,67 @@ while conexao:
 
             input("Pressione ENTER.")
 
-        # Lista leituras cadastradas no banco de dados
+
+
+        # Adiciona um registro à tabela de leituras
         case 2:
+            os.system('cls')  
+
+            try:
+
+                sql_add = """
+                INSERT INTO T_READINGS (
+                    reading_id,
+                    computer_id,
+                    reading_time,
+                    reading_humidity_value,
+                    reading_humidity_level,
+                    reading_pump,
+                    reading_phosphorus,
+                    reading_potassium,
+                    reading_ph_value,
+                    reading_ph_level,
+                    reading_temperature
+                ) VALUES (seq_readings.NEXTVAL, :1, :2, :3, :4, :5, :6, :7, :8, :9, :10)
+                """
+                print("\nInforme os valores solicitados.")
+                print("\nOs obrigatórios estão assinalados com *.")
+
+                computer_id = input("Código do computador de borda (numérico)*: ")
+                reading_time = input("Horário de leitura (numérico)*: ")
+                reading_humidity_value = input("Umidade do solo (numérico, duas casas decimais): ")
+                reading_humidity_level = input("Nível de umidade (baixo ou OK): ")
+                reading_pump = input("Status da bomba (ligada ou desligada): ")
+                reading_phosphorus = input("Teor de fósforo no solo (alto ou baixo): ")
+                reading_potassium = input("Teor de potássio no solo (numérico): ")
+                reading_ph_value = input("Valor do pH do solo (numérico): ")
+                reading_ph_level = input("Nível do pH do solo (alto ou baixo): ")
+                reading_temperature = input("Temperatura (numérico, duas casas decimais): ")
+
+                add_values = (
+                    computer_id,
+                    reading_time,
+                    reading_humidity_value,
+                    reading_humidity_level,
+                    reading_pump,
+                    reading_phosphorus,
+                    reading_potassium,
+                    reading_ph_value,
+                    reading_ph_level,
+                    reading_temperature
+                )
+
+                inst_cadastro.execute(sql_add, add_values)
+                conn.commit()
+                print("Registro inserido com sucesso!")
+
+            except Exception as e:
+                conn.rollback()  # Desfaz qualquer alteração feita na transação
+                print(f"Erro ao inserir registro: {e}")
+
+
+        # Lista leituras cadastradas no banco de dados
+        case 3:
             os.system('cls')  
 
             try:
@@ -174,13 +235,13 @@ while conexao:
             input('Pressione ENTER para continuar.')
 
         # Altera leituras cadastradas no banco de dados, a partir do ID.
-        case 3:
+        case 4:
             os.system('cls')
 
             try:
                 print("-----  Alterar leituras por ID  -----")
 
-                id_to_edit = input("Digite o código (id numérico) do registro que você deseja editar.")
+                id_to_edit = input("Digite o código (id numérico) do registro que você deseja editar: ")
 
                 # Verifica se o ID é um número inteiro
                 if not id_to_edit.isdigit():
@@ -245,19 +306,19 @@ while conexao:
                 print(f"Erro ao alterar registro: {e}")
 
         # Remove leituras cadastradas no banco de dados, a partir do ID.
-        case 4:
+        case 5:
             os.system('cls')
 
             try:
                 print("-----  Remover leituras por ID  -----")
 
-                id_to_delete = input("Digite o código (id numérico) do registro que você deseja remover.")
+                id_to_delete = input("Digite o código (id numérico) do registro que você deseja remover: ")
 
                 if not id_to_delete.isdigit():
                     raise ValueError("O código deve ser um número inteiro.")
                 
                 else:
-                    flag_confirm = input(f'Confirme que deseja remover o registro de id={id_to_delete}, S/N')
+                    flag_confirm = input(f'Confirme que deseja remover o registro de id={id_to_delete}, S/N: ')
 
                     if flag_confirm == 'S' or flag_confirm == 's':
                         sql_delete = "DELETE FROM T_READINGS WHERE reading_id = :id"
@@ -271,13 +332,13 @@ while conexao:
                 print(f"Erro ao alterar registro: {e}")
 
         # Remove todos os dados de leituras da base de dados.
-        case 5:
+        case 6:
             os.system('cls')
 
             try:
                 print("-----  Remmover da base todas as leituras  -----")
 
-                flag_confirm_all = input(f'Confirme que deseja remover todas as leituras, S/N')
+                flag_confirm_all = input(f'Confirme que deseja remover todas as leituras, S/N: ')
 
                 if flag_confirm_all == 'S' or flag_confirm_all == 's':
                     sql_delete_all = "DELETE FROM T_READINGS"
@@ -289,7 +350,7 @@ while conexao:
                 print(f"Erro ao remover registro: {e}")
 
         # Fecha a conexão com o banco de dados e termina a execução do programa.
-        case 6:
+        case 7:
             print("Encerrando o programa...")
             try:
                 inst_cadastro.close()
