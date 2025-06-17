@@ -23,8 +23,8 @@ log_file = "input/computer_7.log"
 try:
     # Efetua a conexão com o Usuário no servidor
 
-    db_user = 'RM888888' # Insira a matrícula (ex.: RM123456)
-    db_pass = '********' # Insira a senha 
+    db_user = 'RM565576' # Insira a matrícula (ex.: RM123456)
+    db_pass = 'Fiap#2025' # Insira a senha 
     conn = oracledb.connect(user=db_user, password=db_pass, dsn='oracle.fiap.com.br:1521/ORCL')
     # Cria as instruções para cada módulo
     inst_cadastro = conn.cursor()

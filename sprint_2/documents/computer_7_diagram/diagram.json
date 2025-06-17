@@ -1,0 +1,112 @@
+{
+  "version": 1,
+  "author": "Jayro Mazzi Jr.",
+  "editor": "wokwi",
+  "parts": [
+    { 
+      "type": "board-esp32-devkit-c-v4", 
+      "id": "esp", 
+      "top": 0, 
+      "left": -100.76, 
+      "attrs": {} 
+    },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": 70.4,
+      "left": -575.2,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r5",
+      "top": -44.6,
+      "left": -298.45,
+      "rotate": 270,
+      "attrs": { "value": "10000" }
+    },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -268.5,
+      "left": -264.6,
+      "attrs": { "humidity": "62.5", "temperature": "22.5" }
+    },
+    { 
+      "type": "wokwi-relay-module", 
+      "id": "relay1", 
+      "top": 336.2, 
+      "left": 105.6, 
+      "attrs": {} 
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text6",
+      "top": -230.4,
+      "left": -355.2,
+      "attrs": { "text": "Umidade" }
+    },
+    {
+      "type": "wokwi-lcd2004",
+      "id": "lcd2",
+      "top": -118.4,
+      "left": 600.8,
+      "attrs": { "pins": "i2c" }
+    },
+    {
+      "type": "wokwi-slide-potentiometer",
+      "id": "pot1",
+      "top": -283,
+      "left": -87.4,
+      "attrs": { "travelLength": "30" }
+    },
+    {
+      "type": "wokwi-slide-potentiometer",
+      "id": "pot2",
+      "top": -283,
+      "left": 181.4,
+      "attrs": { "travelLength": "30" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text1",
+      "top": -172.8,
+      "left": -19.2,
+      "attrs": { "text": "Fósforo" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text2",
+      "top": -134.4,
+      "left": 259.2,
+      "attrs": { "text": "Potássio" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "ldr1:VCC", "esp:3V3", "red", [ "h105.6", "v-57.6" ] ],
+    [ "ldr1:GND", "esp:GND.1", "black", [ "h105.6", "v57.2" ] ],
+    [ "ldr1:DO", "esp:13", "orange", [ "h76.8", "v57" ] ],
+    [ "ldr1:AO", "esp:VP", "violet", [ "h134.4", "v-67.9" ] ],
+    [ "dht1:SDA", "r5:2", "#8f4814", [ "v67.2", "h-28.7" ] ],
+    [ "r5:1", "esp:3V3", "red", [ "v38.4", "h172.65" ] ],
+    [ "dht1:VCC", "esp:3V3", "red", [ "v57.6", "h-48", "v124.8" ] ],
+    [ "dht1:SDA", "esp:18", "#8f4814", [ "v0" ] ],
+    [ "dht1:GND", "esp:GND.2", "black", [ "v67.2", "h220.8" ] ],
+    [ "relay1:GND", "esp:GND.3", "black", [ "h-19.2", "v-278.8" ] ],
+    [ "relay1:VCC", "esp:5V", "red", [ "h-201.6", "v-153.6" ] ],
+    [ "relay1:IN", "esp:17", "purple", [ "h-67.2", "v-249.8" ] ],
+    [ "lcd2:VCC", "esp:3V3", "red", [ "h-739.2", "v105.7" ] ],
+    [ "lcd2:SDA", "esp:21", "green", [ "h-86.4", "v144.2" ] ],
+    [ "lcd2:SCL", "esp:22", "purple", [ "h-115.2", "v105.9" ] ],
+    [ "pot1:GND", "esp:GND.2", "black", [ "h14.8", "v153.6", "h-134.4" ] ],
+    [ "lcd2:GND", "esp:GND.2", "black", [ "h0" ] ],
+    [ "pot2:GND", "esp:GND.2", "black", [ "h14.8", "v153.6", "h-403.2" ] ],
+    [ "pot2:VCC", "esp:3V3", "red", [ "h-38.4", "v163.2", "h-278.4", "v105.6" ] ],
+    [ "pot1:VCC", "esp:3V3", "red", [ "h-48", "v268.8" ] ],
+    [ "pot1:SIG", "esp:34", "limegreen", [ "h-28.8", "v287.2" ] ],
+    [ "pot2:SIG", "esp:35", "orange", [ "h-28.8", "v124", "h-307.2", "v172.8" ] ]
+  ],
+  "dependencies": {}
+}
