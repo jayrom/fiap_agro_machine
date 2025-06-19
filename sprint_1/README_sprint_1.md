@@ -128,7 +128,7 @@ Conta com as seguintes funcionalidades:
 
 - <b>assets</b>: imagens e outros artefatos.
 
-- <b>document</b>: artefatos de simulação (/computer_7_diagram).
+- <b>documents</b>: artefatos de simulação (/computer_7_diagram).
 
 - <b>scripts</b>: scripts SQL para construção e população inicial do banco de dados.
 

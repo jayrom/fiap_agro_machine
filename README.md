@@ -14,9 +14,7 @@
 ## Grupo TiãoTech
 
 <p style="padding-top: 10px;">
-    <a href= "https://www.fiap.com.br/">
-        <img src="assets/tiaotech-logo.png" alt="FIAP - Faculdade de Informática e Admnistração Paulista" border="0" width=10%>
-    </a>
+    <img src="assets/tiaotech-logo.png" alt="Grupo TiãoTech" border="0" width=10%>
 </p>
 
 Por questões de praticidade e agilidade, este projeto está organizado em sprints, ou seja, entregas em fases distintas. Informações específicas de cada sprint são descritas nos respectivos READMEs, como segue:

@@ -2,16 +2,21 @@
 
 <p style="padding-top: 40px">
     <a href= "https://www.fiap.com.br/">
-        <img src="assets/logo-fiap.png" alt="FIAP - Faculdade de Informática e Admnistração Paulista" border="0" width=30%>
+        <img src="../assets/logo-fiap.png" alt="FIAP - Faculdade de Informática e Admnistração Paulista" border="0" width=30%>
     </a>
 </p>
 
 <br>
 
-# Fase 4 / Cap 1 - Automação e inteligência na FarmTech Solutions
+# Fase 4 - Automação e inteligência na FarmTech Solutions
 
 
 ## Grupo TiãoTech
+
+<p style="padding-top: 10px;">
+    <img src="../assets/tiaotech-logo.png" alt="Grupo TiãoTech" border="0" width=10%>
+</p>
+
 
 ## 👨‍🎓 Integrantes
 - <a href="https://www.linkedin.com/in/edmilson-marciano-02648a33">RM565912 - Edmilson Marciano</a>
@@ -23,6 +28,7 @@
 
 ### Tutor
 - <a href="https://www.linkedin.com/in/lucas-gomes-moreira-15a8452a">Lucas Gomes Moreira</a>
+
 ### Coordenador
 - <a href="https://www.linkedin.com/in/andregodoichiovato">Andre Godoi Chiovato</a>
 
