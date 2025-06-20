@@ -41,6 +41,12 @@
 
 
 
+Incluir
+- Usando biblioteca JSON para otimizar o uso de memória pela concatenação de strings.
+
+
+
+
 ## 📁 Estrutura de pastas
 
 - sprint_2/**assets**: imagens e outros artefatos.
