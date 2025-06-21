@@ -99,6 +99,12 @@ O treinamento foi realizado utilizando-se o modelo 80-20, mesclando os dados de 
 ### Insight
 A cada leitura recebida, juntam-se as últimas 5 leituras mais recentes e o conjunto é submetido ao modeo treinado que amite um parecer se se deve acionar ou não a irrigação e qual o melhor período.
 
+![Exemplo de recomendação emitida pela aplicação.](assets/predict.jpeg)
+*<center><sub>MapeExemplo de recomendação emitida pela aplicação.</sub></center>*
+
+
+
+
 ### Armazenamento em banco de dados
 As leituras recebidas via MQTT são devidamente armazenadas na base de dados.
 
