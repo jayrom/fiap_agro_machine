@@ -1,0 +1,123 @@
+{
+  "version": 1,
+  "author": "Jayro Mazzi Jr.",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-half", "id": "bb1", "top": 246.6, "left": -563.6, "attrs": {} },
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": -167.96, "attrs": {} },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": 291.2,
+      "left": -844,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r5",
+      "top": 215.45,
+      "left": -615.8,
+      "rotate": 180,
+      "attrs": { "value": "10000" }
+    },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": 38.7,
+      "left": -859.8,
+      "attrs": { "humidity": "44", "temperature": "23.5" }
+    },
+    { "type": "wokwi-relay-module", "id": "relay1", "top": 537.8, "left": -297.6, "attrs": {} },
+    {
+      "type": "wokwi-text",
+      "id": "text6",
+      "top": 76.8,
+      "left": -950.4,
+      "attrs": { "text": "Umidade" }
+    },
+    {
+      "type": "wokwi-lcd2004",
+      "id": "lcd2",
+      "top": 294.4,
+      "left": 34.4,
+      "attrs": { "pins": "i2c" }
+    },
+    {
+      "type": "wokwi-slide-potentiometer",
+      "id": "pot1",
+      "top": -119.8,
+      "left": -701.8,
+      "attrs": { "travelLength": "30" }
+    },
+    {
+      "type": "wokwi-slide-potentiometer",
+      "id": "pot2",
+      "top": -118.84,
+      "left": -389.92,
+      "attrs": { "travelLength": "30" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text1",
+      "top": -144,
+      "left": -614.4,
+      "attrs": { "text": "Fósforo" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text2",
+      "top": -144,
+      "left": -316.8,
+      "attrs": { "text": "Potássio" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text3",
+      "top": 374.4,
+      "left": -777.6,
+      "attrs": { "text": "pH" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text4",
+      "top": 604.8,
+      "left": -297.6,
+      "attrs": { "text": "Comando da bomba" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "dht1:SDA", "r5:2", "#8f4814", [ "v9.6", "h0.1", "v57.6", "h219.6" ] ],
+    [ "lcd2:SDA", "esp:21", "green", [ "h-48", "v-268.6" ] ],
+    [ "lcd2:SCL", "esp:22", "purple", [ "h-57.6", "v-306.9" ] ],
+    [ "pot1:SIG", "esp:34", "limegreen", [ "h-33.48", "v46.24", "h316.8", "v76.8" ] ],
+    [ "pot2:SIG", "esp:35", "blue", [ "h-14.28", "v238.24" ] ],
+    [ "bb1:tp.25", "esp:3V3", "red", [ "h1.6", "v-268.5" ] ],
+    [ "esp:GND.1", "bb1:tn.25", "black", [ "h-47.85", "v115.3" ] ],
+    [ "bb1:bn.25", "bb1:tn.25", "black", [ "h49.6", "v-174" ] ],
+    [ "bb1:bp.25", "bb1:tp.25", "red", [ "h40", "v-174" ] ],
+    [ "relay1:VCC", "bb1:bp.20", "red", [ "h0" ] ],
+    [ "bb1:tn.1", "ldr1:GND", "black", [ "v-0.1", "h-56", "v48.4" ] ],
+    [ "ldr1:VCC", "bb1:tp.1", "red", [ "h76.8", "v-48.3" ] ],
+    [ "dht1:VCC", "bb1:tp.2", "red", [ "v76.8", "h324.8" ] ],
+    [ "dht1:GND", "bb1:tn.4", "black", [ "v57.6", "h315.2" ] ],
+    [ "dht1:SDA", "bb1:8t.a", "#8f4814", [ "v48", "h364.9" ] ],
+    [ "esp:18", "bb1:8t.c", "#8f4814", [ "h38.4", "v211.2" ] ],
+    [ "r5:1", "bb1:tp.3", "#8f4814", [ "h48", "v28.5" ] ],
+    [ "pot1:VCC", "bb1:tp.7", "red", [ "h-43.08", "v75.84", "h276.8" ] ],
+    [ "relay1:GND", "bb1:bn.19", "black", [ "h0" ] ],
+    [ "relay1:IN", "bb1:22t.e", "purple", [ "h0" ] ],
+    [ "esp:17", "bb1:22t.a", "purple", [ "h28.8", "v105.6", "h-297.6" ] ],
+    [ "lcd2:VCC", "bb1:bp.22", "red", [ "h-230.4", "v144.1", "h-97.6" ] ],
+    [ "lcd2:GND", "bb1:bn.23", "black", [ "h-240", "v144", "h-78.4" ] ],
+    [ "pot2:GND", "bb1:tn.24", "black", [ "v-0.96", "h10.12", "v86.4", "h-96" ] ],
+    [ "pot2:VCC", "bb1:tp.9", "red", [ "h0" ] ],
+    [ "pot1:GND", "bb1:tn.8", "black", [ "v-0.96", "h38.92" ] ],
+    [ "esp:VP", "bb1:12t.a", "violet", [ "h-268.65" ] ],
+    [ "ldr1:AO", "bb1:12t.e", "violet", [ "h0" ] ],
+    [ "esp:13", "bb1:13t.a", "orange", [ "h-259.05" ] ],
+    [ "ldr1:DO", "bb1:13t.d", "orange", [ "h0" ] ]
+  ],
+  "dependencies": {}
+}
