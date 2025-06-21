@@ -34,15 +34,50 @@
 
 
 
-# Considerações iniciais
+# Considerações iniciais e premissas
 
-.
+O presente projeto, no seu atual estágio tem por objetivo demonstrar o nosso domínio na aplicação prática dos conhecimentos adquiridos ao longo do curso. Assim, da maneira que entendemos, esta entrega focaliza principalmente o fluxo de dados, desde a coleta nos sensores simulados, até a apresentação de insights em um dashboard.
+Para isso, optamos por enfatizar a prova de conceito em questão. Foi necessário que assumíssemos a premissa de que seria necessário, neste momento, abrir mão da fidelidade das predições e do valor efetivamente entregue pela solução, considerando a validade limitada dos dados disponíveis.
+
+
+# Pipeline de dados
+
+![Fluxo de aquisição e processamento dos dados.](assets/data_pipeline.png)
+*<center><sub>Fluxo de aquisição e processamento dos dados.</sub></center>*
+
+
+# Computador de borda
+
+O kit foi modificado com relação à entrega anterior, para facilitar a interação com os controles durante a simulação. 
+
+![Composição modificada do kit de cmputador de borda e sensores.](assets/computer_7.png)
+*<center><sub>Composição modificada do kit de cmputador de borda e sensores.</sub></center>*
+
+As principais alterações foram:
+
+- Substituição dos dois pushbuttons - Para de controle do teor de potássio e de fósforo por dois potenciômetros lineares, que fornecem leituras analógicas.
+
+- Substituição do monitor serial por um display LCD - A formatação das mensagens e a definição de caracteres customizados permitiram acomodá-las todas no LCD, como mostra a figura a seguir.
+
+![Layout para exibição de dados no LCD.](assets/lcd_2.png)
+*<center><sub>Layout para exibição de dados no LCD.</sub></center>*
+
+- Mapeamento das escalas de leitura - Transformação dos valores brutos apresentados pela leitura dos sensores em valores "palatáveis", semelhantes aos valores reais de cada uma das grandezas envolvidas, conforme mostra a figura a seguir.
+
+![Mapeamento de valores.](assets/scales_mapping.png)
+*<center><sub>Mapeamento de valores do sensor LDR para valores de pH da vida real.</sub></center>*
+
+- Refatoração de dados de CSV para JSON - O uso da biblioteca adequada ajuda a otimizar o uso de memória utilizada anteriormente na concatenação de strings para formatar o CSV.
+
+
+
+## Simulação
 
 
 
 
-Incluir
-- Usando biblioteca JSON para otimizar o uso de memória pela concatenação de strings.
+
+
 
 
 
