@@ -55,7 +55,7 @@ def prever_irrigacao(inst_consulta, conn, data_file):
         # 1. carregar dados históricos do csv
         try:
             data_csv = pd.read_csv(data_file)
-            print("f"Dados históricos carregados do CSV: {data_csv.shape[0]} registros.)
+            print(f"Dados históricos carregados do CSV: {data_csv.shape[0]} registros.")
         except FileNotFoundError:
             print(f"Erro: Arquivo {data_file} não encontrado.")
             data_csv = pd.DataFrame()

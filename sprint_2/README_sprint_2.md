@@ -55,28 +55,54 @@ O kit foi modificado com relação à entrega anterior, para facilitar a intera�
 
 As principais alterações foram:
 
-- Substituição dos dois pushbuttons - Para de controle do teor de potássio e de fósforo por dois potenciômetros lineares, que fornecem leituras analógicas.
+- **Substituição dos dois pushbuttons** - Para de controle do teor de potássio e de fósforo por dois potenciômetros lineares, que fornecem leituras analógicas.
 
-- Substituição do monitor serial por um display LCD - A formatação das mensagens e a definição de caracteres customizados permitiram acomodá-las todas no LCD, como mostra a figura a seguir.
+- **Substituição do monitor serial por um display LCD** - A formatação das mensagens e a definição de caracteres customizados permitiram acomodá-las todas no LCD, como mostra a figura a seguir.
 
 ![Layout para exibição de dados no LCD.](assets/lcd_2.png)
 *<center><sub>Layout para exibição de dados no LCD.</sub></center>*
 
-- Mapeamento das escalas de leitura - Transformação dos valores brutos apresentados pela leitura dos sensores em valores "palatáveis", semelhantes aos valores reais de cada uma das grandezas envolvidas, conforme mostra a figura a seguir.
+- **Uso do serial plotter** - Para acompanhamento instantâneo da variação, no nosso caso, dos teores de potássio e fósforo no solo. Veja exemplo na figura a seguir.
+
+![Exemplo do uso do serial plotter capturado durante a simulação.](assets/plotter_1.png)
+*<center><sub>Exemplo do uso do serial plotter capturado durante a simulação.</sub></center>*
+
+- **Mapeamento das escalas de leitura** - Transformação dos valores brutos apresentados pela leitura dos sensores em valores "palatáveis", semelhantes aos valores reais de cada uma das grandezas envolvidas, conforme mostra a figura a seguir.
 
 ![Mapeamento de valores.](assets/scales_mapping.png)
 *<center><sub>Mapeamento de valores do sensor LDR para valores de pH da vida real.</sub></center>*
 
-- Refatoração de dados de CSV para JSON - O uso da biblioteca adequada ajuda a otimizar o uso de memória utilizada anteriormente na concatenação de strings para formatar o CSV.
-
-
+- **Refatoração de dados de CSV para JSON** - O uso da biblioteca adequada ajuda a otimizar o uso de memória utilizada anteriormente na concatenação de strings para formatar o CSV.
 
 ## Simulação
 
+A simulação foi realizada no Wokwi. O projeto do circuito pode ser acessado em https://wokwi.com/projects/433845529165572097.
+Os arquivos relacionados encontram-se também em [sprint_2/documents/computer_7_diagram](sprint_2/documents/computer_7_diagram).
 
+# Aplicação principal
 
+O papel da aplicação principal é buscar no broker MQTT os dados enviados pelos sensores e submetê-los ao modelo de ML da aplicação, para emitir recomendações relacionadas ao acionamento, ou não, do mecanismo de irrigação.
 
+## Dados
 
+Utilizamos um dataset simulado com dados meteorológicos históricos, via CSV, para treinamento do modelo. Os dados obtidos dos sensores, via MQTT foram utilizados para a emissão das recomendações pelo modelo.
+
+## Modelo de ML
+
+### Escolha do modelo
+Considerando que nosso problema definne-se em acionar ou não a irrigação, temos então um problema clássico de classificação binária, o qual se adequa perfeitamente ao uso do modelo  
+DecisionTreeClassifier. Além disso, ele favorece a interpretabilidade do racional utilizado para suas predições.
+
+### Treinamento do modelo
+O treinamento foi realizado utilizando-se o modelo 80-20, mesclando os dados de CSV e MQTT para uma
+
+### Insight
+A cada leitura recebida, juntam-se as últimas 5 leituras mais recentes e o conjunto é submetido ao modeo treinado que amite um parecer se se deve acionar ou não a irrigação e qual o melhor período.
+
+### Armazenamento em banco de dados
+As leituras recebidas via MQTT são devidamente armazenadas na base de dados.
+
+# Dashboard
 
 
 
