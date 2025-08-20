@@ -86,7 +86,7 @@ Foram feitas duas estimativas, uma para cada região solicitada.
 ## Instância Amazon EC2 - t4g.micro
 Trata-se de uma arquitetura de uso geral, recomendada para aplicações que não exigem  desempenho extremo.
 
-Utiliza armazenamento **AWS EBS** (ver <sup>1</sup> )
+Utiliza armazenamento **AWS EBS** <sup>1</sup>
 
 #### Características
 - vCPUs: 2
@@ -200,6 +200,13 @@ A tabela a seguir resume algumas considerações sobre as opções estimadas.
 | 2 | t4g.micro - South America (São Paulo) | 18,01 | <ul><li>Sem restrição de acesso a dados</li><li>Menor latência</li></ul> |<ul><li>Processadores com arquitetura ARM</li><li>Memória limitada</li></ul> 
 | 3 | t3a.medium - US East (North Virginia) | 20,28 | <ul><li>Arquitetura x86_64</li><li>Folga de memória</li></ul> | <ul><li>Pode ter restrição de acesso a dados</li><li>Maior latência</li></ul>
 | 4 | t3a.medium - South America (São Paulo) | 32,83 | <ul><li>Sem restrição de acesso a dados</li><li>Menor latência</li><li>Arquitetura x86_64</li><li>Folga de memória</li></ul> |  <ul><li>Maior preço</li></ul>
+
+As informações da tabela acima suscitam diversas questões a partir do confronto entre vantagens e desvantagens dessa ou daquela opção. Questões como:
+> Devemos pagar menos e arcar com o risco de sanções legais de acesso a dados em território estrangeiro e com uma maior latência no acesso aos dados?
+
+> Devemos pagar mais e, em contrapartida, eliminar quaisquer riscos de incompatibilidade de bibliotecas de ML, além de menor latência de acesso aos dados?
+
+Vários outros questionamentos podem ser propostos e esse é o desafio para a visão estratégica dos profissionais envolvidos nessas decisões.
 
 ### Fatores determinantes
 O exercício permitiu observar, ainda que num nível ainda pouco aprofundado, como os valores estimados podem variar muito dependendo das opções configuradas. Dentre os principais fatores que influenciam o custo, podemos destacar:
