@@ -21,11 +21,12 @@ Por questões de praticidade e agilidade, este projeto está organizado em sprin
 
 - [Sprint 1 - Fase 3 - Construindo uma máquina agrícola](sprint_1/README_sprint_1.md)
 - [Sprint 2 - Fase 4 - Automação e inteligência na FarmTech Solutions](sprint_2/README_sprint_2.md)
+- [Sprint 3 - Fase 5 - FarmTech na era da Cloud Computing](sprint_3/README_sprint_3.md)
 
 
 ## 👨‍🎓 Integrantes
 
-Considerando que a composição dos grupos se altera ao longo do tempo, por favor, confira a lista dos integrantes no README de cada sprint.
+Considerando que a composição dos grupos pode se alterar ao longo do tempo, por favor, confira a lista dos integrantes no README de cada sprint.
 
 
 ## 👩‍🏫 Professores
@@ -45,6 +46,8 @@ Considerando que a composição dos grupos se altera ao longo do tempo, por favo
 - **sprint_1** - Documentação específica da primeira entrega. Comece por [aqui](sprint_1/README_sprint_1.md).
 
 - **sprint_2** - Documentação específica da segunda entrega. Comece por [aqui](sprint_2/README_sprint_2.md).
+
+- **sprint_3** - Documentação específica da terceira entrega (9/9/25). Comece por [aqui](sprint_3/README_sprint_3.md).
 
 - **README.md** - Este documento.
 

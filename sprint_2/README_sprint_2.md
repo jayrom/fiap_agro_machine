@@ -103,17 +103,6 @@ A cada leitura recebida, juntam-se as últimas 5 leituras mais recentes e o conj
 *<center><sub>MapeExemplo de recomendação emitida pela aplicação.</sub></center>*
 
 
-
-
-### Armazenamento em banco de dados
-As leituras recebidas via MQTT são devidamente armazenadas na base de dados.
-
-# Dashboard
-
-
-
-
-
 ## 📁 Estrutura de pastas
 
 - sprint_2/**assets**: imagens e outros artefatos.
