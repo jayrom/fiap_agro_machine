@@ -33,12 +33,11 @@
 - <a href="https://www.linkedin.com/in/andregodoichiovato">Andre Godoi Chiovato</a>
 
 
-
-# Considerações iniciais e premissas
-
-.
-
 # Entrega 1
+
+Esta entrega prevê a análise de dados ([crop_yield.csv](input_data/crop_yield.csv)) relativos às condições do solo e a temperatura de uma fazenda e a previsão do rendimento da safra e explorar a tendência de produtividade.
+Conforme solicitado, todos os comentários acerca do enunciado encontram-se no notebook da aplicação ([FarmTech_sprint_3.ipynb](src/FarmTech_sprint_3.ipynb)).
+
 
 # Entrega 2
 
@@ -100,7 +99,7 @@ A comparação deixa claro que o serviço **AWS Lambda** se mostra muito mais va
 ## Estimativas realizadas na AWS Pricing Calculator
 https://calculator.aws/
 
-> Note que, pel amera ordm cronológica de confecção das estimativas, a sua numeração não segue a mesma ordem da estrutura deste documento. Assim, temos:
+> Note que, pela mera ordem cronológica de confecção das estimativas, a sua numeração não segue a mesma ordem da estrutura deste documento. Assim, temos:
 > - Cenário 1 - AWS Lambda - estaimativas 5 e 6
 > - Cenário 2 - Amazin EC2 - estimativas 1 a 4
 
@@ -161,10 +160,6 @@ Veja a estimativa no arquivo [agro-machine-estimate_south_america_op_6.pdf](docu
 | Amazon S3 - US East | 1,17 |
 
 - Os custos não incluem impostos
-
-
-
-
 
 
 # Cenário 2 - Amazon EC2
@@ -288,7 +283,7 @@ A tabela a seguir resume algumas considerações sobre as opções estimadas.
 
 #### Tabela comparativa final
 
-| Opção | Instância / Região | Custo (U$/mês) | Vantagens | Desvantagens |
+| Estimativa | Instância / Região | Custo (U$/mês) | Vantagens | Desvantagens |
 | :-------: | ------- | -------: | ------- | ------- |
 | 1 | EC-2 t4g.micro - US East (North Virginia) | 11,08 | <ul><li>Menor preço EC2</li></ul> | <ul><li>Pode ter restrição de acesso a dados</li><li>Processadores com arquitetura ARM</li><li>Maior latência</li><li>Memória limitada</li></ul>
 | 2 | EC-2 t4g.micro - South America (São Paulo) | 18,01 | <ul><li>Sem restrição de acesso a dados</li><li>Menor latência</li></ul> |<ul><li>Processadores com arquitetura ARM</li><li>Memória limitada</li></ul> 
@@ -299,11 +294,11 @@ A tabela a seguir resume algumas considerações sobre as opções estimadas.
 
 As informações da tabela acima suscitam diversas questões a partir do confronto entre vantagens e desvantagens dessa ou daquela opção. Questões como:
 
-> O quão é efetivamente vantajoso contratar um serviço mais barato e, em contrapartida, ter menos autonomia no controle do sistema operacional e do software instalado na instância contratada?
+> *O quão efetivamente vantajoso seria contratar um serviço mais barato e, em contrapartida, ter menos autonomia no controle do sistema operacional e do software instalado na instância contratada?*
 
-> Devemos pagar menos e arcar com o risco de sanções legais de acesso a dados em território estrangeiro e com uma maior latência no acesso aos dados?
+> *Devemos pagar menos e arcar com o risco de sanções legais de acesso a dados em território estrangeiro e com uma maior latência no acesso aos dados?*
 
-> Devemos pagar mais e, em contrapartida, eliminar quaisquer riscos de incompatibilidade de bibliotecas de ML, além de menor latência de acesso aos dados?
+> *Devemos pagar mais e, em contrapartida, eliminar quaisquer riscos de incompatibilidade de bibliotecas de ML, além de menor latência de acesso aos dados?*
 
 Vários outros questionamentos podem ser propostos e esse é o desafio para a visão estratégica dos profissionais envolvidos nessas decisões, dos quais se requer absoluto conhecimento do projeto em desenvolvimento.
 
@@ -325,7 +320,7 @@ A arquitetura de armazenamento, o tipo e a capacidade provisionada também tende
 Já para o `Amazon S3`, há inúmeras outras modalidades de seviços disponíveis, dependendo do tipo de objeto a ser armazenado e das facilidades disponíveis.
 
 #### Data transfer
-A transferência de dados pode ser um custo estratégico e muitas vezes subestimado. Para economizar, seria ideal hospedar aplicações e bancos de dados na mesma região AWS. A transferência de dados entre serviços na mesma região geralmente é gratuita, enquanto a troca de dados com a Internet é cobrada. Essa diferença pode tornar os custos de transferência de dados significativamente mais altos se a arquitetura não for bem planejada.
+A transferência de dados pode ser um custo estratégico, que não deve ser subestimado. Para economizar, seria ideal hospedar aplicações e bancos de dados na mesma região AWS. A transferência de dados entre serviços na mesma região geralmente é gratuita, enquanto a troca de dados com a Internet é cobrada. Essa diferença pode tornar os custos de transferência de dados significativamente mais altos se a arquitetura não for bem planejada.
 
 ## Conclusão
 
